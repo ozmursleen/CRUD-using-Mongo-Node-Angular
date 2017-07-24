@@ -1,0 +1,61 @@
+<html ng-app="myApp">  
+<head lang="en">
+    <meta charset="utf-8">
+    <title>CRUD with NODE AND MONGO</title>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.css" />      
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body ng-controller="MyCtrl">   
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <a class="navbar-brand" href="#">Dashboard</a>      
+  </nav>
+
+  <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Nevigation Menu 1</a>
+          </li>           
+      </ul>
+
+
+  </nav>
+
+  <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+   
+      <h2>Data</h2>
+      <div class="table-responsive">
+         <div ng-if="isLoadedModel" class="table table-striped" ng-grid="gridOptions">
+         </div>            
+     </div>
+    <form class="form-inline col-sm-8">
+                <div class="form-group" ng-repeat="field in Model">
+                    <div ng-include="getFieldTemplateUrl(field)"></div>
+                </div>
+                
+                    <button type="button"  class="btn btn-default" ng-click="createTodo()">Add</button>
+               
+     </form> 
+ </main>
+</div>
+</div>
+<style type="text/css">
+    .ngViewport.ng-scope{
+        height: auto !important;
+        overflow-y: hidden;
+    }
+
+    .ngTopPanel.ng-scope, .ngHeaderContainer{
+        width: auto !important;
+    }
+    .ngGrid{
+        background-color: transparent!important;
+    }
+</style>
+</body>    
+</html>
